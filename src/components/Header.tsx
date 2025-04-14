@@ -1,4 +1,3 @@
-import React from "react";
 import { AppBar, Toolbar, Typography, Tab, Button } from "@mui/material";
 import { NavBarWrapper } from "../styles/Header.modules";
 
