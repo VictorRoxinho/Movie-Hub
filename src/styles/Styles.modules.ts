@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// Header
 export const NavBarWrapper = styled.div`
   * {
     font-family: "Montserrat", sans-serif;
@@ -46,4 +47,11 @@ export const NavBarWrapper = styled.div`
 
   @media (max-width: 1060px) {
   }
+`;
+
+// Display Items
+
+export const MovieShowsWrapper = styled.div`
+  padding-top: 80px; /* Ajuste este valor para corresponder à altura do Header */
+  max-width: 1200px;
 `;
