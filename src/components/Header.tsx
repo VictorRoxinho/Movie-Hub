@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Typography, Tab, Button } from "@mui/material";
-import { NavBarWrapper } from "../styles/Header.modules";
+import { NavBarWrapper } from "../styles/Styles.modules";
 
 const menuItems = [
   { name: "Home" },
