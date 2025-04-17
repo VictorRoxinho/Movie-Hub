@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { MovieShowsWrapper } from "../styles/Styles.modules";
-import { trendingURL } from "../modules/ApiLinks";
+import { fetchOptions } from "../modules/ApiLinks";
+
+interface DisplayItemsProps {
+  apiURL: string; // Representa de onde vêm os dados, a rota html da API
+  heading: string; // Representa o título do componente
+}
 
 interface Movie {
   id: number;
@@ -13,14 +18,14 @@ interface Movie {
   overview: string;
 }
 
-function DisplayItems() {
+function DisplayItems({ apiURL, heading }: DisplayItemsProps) {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get(trendingURL);
+        const response = await axios.get(apiURL, fetchOptions);
         setMovies(response.data.results);
         setLoading(false);
       } catch (error) {
@@ -30,13 +35,13 @@ function DisplayItems() {
     };
 
     fetchMovies();
-  }, []);
+  }, [apiURL]);
 
   return (
     <>
       <MovieShowsWrapper>
         <div className="movieHeading">
-          <h1>Trending Movies & TV Shows</h1>
+          <h1>{heading}</h1>
         </div>
         {loading ? (
           <p>Loading...</p>

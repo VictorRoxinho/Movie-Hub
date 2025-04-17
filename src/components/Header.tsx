@@ -1,11 +1,12 @@
-import { AppBar, Toolbar, Typography, Tab, Button } from "@mui/material";
+import { AppBar, Toolbar, Typography, Button } from "@mui/material";
 import { NavBarWrapper } from "../styles/Styles.modules";
+import { NavLink } from "react-router-dom";
 
 const menuItems = [
-  { name: "Home" },
-  { name: "Movies" },
-  { name: "TV Shows" },
-  { name: "Popular" },
+  { name: "Home", path: "/" },
+  { name: "Movies", path: "/movies" },
+  { name: "TV Shows", path: "/tv-shows" },
+  { name: "Popular", path: "/popular" },
 ];
 
 function Header() {
@@ -17,7 +18,16 @@ function Header() {
             <Typography className="logo">Movie Hub</Typography>
             <div className="nav-links">
               {menuItems.map((nav, index) => (
-                <Tab className="links" label={nav.name} key={index} />
+                <NavLink
+                  style={{ textDecoration: "none" }}
+                  key={index}
+                  to={nav.path}
+                  className={({ isActive }) =>
+                    isActive ? "links active" : "links"
+                  }
+                >
+                  {nav.name}
+                </NavLink>
               ))}
             </div>
             <Button className="login-btn" variant="contained" color="secondary">
