@@ -45,6 +45,18 @@ export const NavBarWrapper = styled.div`
     background-color: #e64a19;
   }
 
+  .links {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .links.active {
+    color: #ff5722;
+  }
+
   @media (max-width: 1060px) {
   }
 `;
