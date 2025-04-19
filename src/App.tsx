@@ -9,6 +9,7 @@ import {
   trendingMoviesURL,
   trendingTVShowsURL,
 } from "./modules/ApiLinks";
+import { GlobalStyle } from "./styles/Styles.modules";
 
 // Main App Component
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <Router>
+      <GlobalStyle />
       <Header />
       <Routes>
         <Route
