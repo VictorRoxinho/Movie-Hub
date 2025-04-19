@@ -7,9 +7,15 @@ export const fetchOptions = {
   },
 };
 
-// Movie Endpoints
+// Endpoints
 export const ratedMovies =
   "https://api.themoviedb.org/3/account/{account_id}/rated/movies";
 
 export const trendingURL =
   "https://api.themoviedb.org/3/trending/all/day?language=en-US";
+
+export const trendingMoviesURL =
+  "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
+
+export const trendingTVShowsURL =
+  "https://api.themoviedb.org/3/trending/tv/day?language=en-US";
