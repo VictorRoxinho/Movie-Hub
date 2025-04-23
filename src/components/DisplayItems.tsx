@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
+import { Link } from "react-router-dom";
 
 // Styles and Components
 import { MovieShowsWrapper } from "../styles/Styles.modules";
@@ -11,15 +12,17 @@ interface DisplayItemsProps {
   heading: string; // Representa o título do componente
 }
 
-interface Movie {
+export interface Movie {
   id: number;
   title: string;
   poster_path: string;
   backdrop_path: string;
+  genres: { id: number; name: string }[];
   vote_average: number;
   release_date: string;
   first_air_date: string;
   overview: string;
+  runtime: number;
 }
 
 function DisplayItems({ apiURL, heading }: DisplayItemsProps) {
@@ -88,16 +91,21 @@ function DisplayItems({ apiURL, heading }: DisplayItemsProps) {
           <div className="movieGrid">
             {movies.map((movie) => (
               <div key={movie.id} className="movieCard">
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title || "No Title"}
-                />
-                <h3>{movie.title || "Untitled"}</h3>
-                <p>Rating: {movie.vote_average}</p>
-                <p>
-                  Release Date: {movie.release_date || movie.first_air_date}
-                </p>
-                <p>{movie.overview}</p>
+                <Link
+                  to={`/movie/${movie.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.title || "No Title"}
+                  />
+                  <h3>{movie.title || "Untitled"}</h3>
+                  <p>Rating: {movie.vote_average}</p>
+                  <p>
+                    Release Date: {movie.release_date || movie.first_air_date}
+                  </p>
+                  <p>{movie.overview}</p>
+                </Link>
               </div>
             ))}
           </div>
