@@ -65,6 +65,7 @@ function App() {
           }
         />
         <Route path="/movie/:id" element={<MovieInfos />} />
+        <Route path="/tv/:id" element={<MovieInfos />} />
       </Routes>
     </Router>
   );

@@ -15,6 +15,7 @@ interface DisplayItemsProps {
 export interface Movie {
   id: number;
   title: string;
+  name: string;
   poster_path: string;
   backdrop_path: string;
   genres: { id: number; name: string }[];
@@ -78,13 +79,22 @@ function DisplayItems({ apiURL, heading }: DisplayItemsProps) {
               />
               <div className="highlight-content">
                 <h2 className="highlight-title">
-                  {movies.slice(0, 5)[currentIndex]?.title || "No Title"}
+                  {movies.slice(0, 5)[currentIndex]?.title ||
+                    movies.slice(0, 5)[currentIndex]?.name ||
+                    "No Title"}
                 </h2>
                 <p className="highlight-overview">
                   {movies.slice(0, 5)[currentIndex]?.overview ||
                     "No description available."}
                 </p>
-                <button className="highlight-button">Read more</button>
+                <Link
+                  to={`/${
+                    movies.slice(0, 5)[currentIndex]?.title ? "movie" : "tv"
+                  }/${movies.slice(0, 5)[currentIndex]?.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <button className="highlight-button">Read more</button>
+                </Link>
               </div>
             </div>
           </div>
@@ -92,17 +102,23 @@ function DisplayItems({ apiURL, heading }: DisplayItemsProps) {
             {movies.map((movie) => (
               <div key={movie.id} className="movieCard">
                 <Link
-                  to={`/movie/${movie.id}`}
+                  to={`/${movie.title ? "movie" : "tv"}/${movie.id}`}
                   style={{ textDecoration: "none" }}
                 >
                   <img
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                     alt={movie.title || "No Title"}
                   />
-                  <h3>{movie.title || "Untitled"}</h3>
-                  <p>Rating: {movie.vote_average}</p>
+                  <h3>{movie.title || movie.name || "Untitled"}</h3>
+                  <p>Rating: {movie.vote_average.toFixed(1)}</p>
                   <p>
-                    Release Date: {movie.release_date || movie.first_air_date}
+                    Release Date:{" "}
+                    {new Date(
+                      movie.release_date || movie.first_air_date
+                    ).toLocaleDateString("pt-BR", {
+                      month: "numeric",
+                      year: "numeric",
+                    })}
                   </p>
                   <p>{movie.overview}</p>
                 </Link>
