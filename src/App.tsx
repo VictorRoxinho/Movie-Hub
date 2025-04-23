@@ -2,6 +2,9 @@
 import Header from "./components/Header";
 import DisplayItems from "./components/DisplayItems";
 
+// Pages
+import MovieInfos from "./pages/MoviesInfos";
+
 // Styles
 import {
   trendingURL,
@@ -61,6 +64,8 @@ function App() {
             />
           }
         />
+        <Route path="/movie/:id" element={<MovieInfos />} />
+        <Route path="/tv/:id" element={<MovieInfos />} />
       </Routes>
     </Router>
   );

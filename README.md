@@ -17,3 +17,9 @@ Aplicação web responsiva para explorar filmes, feita com React + TypeScript e 
 - Material UI
 - Axios
 - [API de Filmes](#) _(a definir)_
+
+## Créditos
+
+- O componente `StyledButton` foi reutilizado de um site open-source de elementos CSS.
+  - Fonte: [Styled Button](https://uiverse.io/cssbuttons-io/massive-mayfly-74)
+  - Adaptei o estilo para combinar com o tema do projeto.

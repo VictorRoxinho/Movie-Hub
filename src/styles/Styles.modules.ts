@@ -140,7 +140,7 @@ export const MovieShowsWrapper = styled.div`
     color: #fff;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 15px;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -209,5 +209,173 @@ export const MovieShowsWrapper = styled.div`
     font-size: 0.9rem;
     color: #555;
     margin: 5px 0;
+  }
+`;
+
+export const MovieInfosStyled = styled.div`
+  max-width: 90vw;
+  margin-top: 80px;
+  padding-top: 150px;
+  margin: 0 auto;
+
+  .movie-container {
+    display: flex;
+  }
+
+  .movie-banner {
+    min-width: 25vw;
+  }
+
+  .movie-banner img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  .movie-infos {
+    margin-left: 3rem;
+  }
+
+  .movie-infos h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  .movie-genres {
+    margin-left: 1.2rem;
+  }
+  .genre-tag {
+    background-color: #ff5722;
+    color: #fff;
+    padding: 5px 20px;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-right: 10px;
+    font-size: 0.9rem;
+    cursor: default;
+  }
+
+  .movie-moreinfos {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-left: 1.5rem;
+  }
+
+  .movie-moreinfos p {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .movie-infos h3 {
+    font-size: 1.2rem;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    text-align: justify;
+    margin-left: 1.5rem;
+  }
+
+  .movie-buttons {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 5rem;
+    margin-left: 1.5rem;
+  }
+`;
+
+// StyledButton: Reutilizado de um site open-source de elementos CSS, adaptado para o projeto
+// Fonte: https://uiverse.io/cssbuttons-io/massive-mayfly-74
+
+export const StyledButton = styled.div`
+  margin-left: 3.5rem;
+  button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+  }
+
+  button.watch-trailer {
+    width: 14rem;
+    height: auto;
+  }
+
+  button.watch-trailer .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #ff5722;
+    border-radius: 1.625rem;
+  }
+
+  button.watch-trailer .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+  }
+
+  button.watch-trailer .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+  }
+
+  button.watch-trailer .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+  }
+
+  button.watch-trailer .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #929393;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  button:hover .circle {
+    width: 100%;
+  }
+
+  button:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+  }
+
+  button:hover .button-text {
+    color: #fff;
   }
 `;
