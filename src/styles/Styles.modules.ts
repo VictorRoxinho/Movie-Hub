@@ -140,7 +140,7 @@ export const MovieShowsWrapper = styled.div`
     color: #fff;
     border: none;
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 15px;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
