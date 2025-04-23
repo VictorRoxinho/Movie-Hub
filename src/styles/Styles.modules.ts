@@ -2,68 +2,79 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #121212; /* Cor de fundo desejada */
-    color: #ffffff; /* Cor do texto (opcional) */
+    background: linear-gradient(180deg, #0c0f10, #1c1d1c);
+    color: #ffffff; 
     margin: 0;
     font-family: "Montserrat", sans-serif;
   }
 `;
 
 // Header
+
 export const NavBarWrapper = styled.div`
-  * {
-    font-family: "Montserrat", sans-serif;
-  }
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   .logo {
+    font-family: "Special Gothic Expanded One", sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     font-size: 1.8rem;
     font-weight: bold;
     color: #ffffff;
-    flex-grow: 1;
+  }
+
+  .logo:hover {
+    color: #ff5722;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    cursor: default;
   }
 
   .nav-links {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 1.5rem;
+    background-color: #1c1d1c;
+    height: 4rem;
+    border-radius: 30px;
+    padding: 0 0.5rem;
+    font-size: 1.2rem;
+    color: #929393;
   }
 
   .links {
-    color: #ffffff;
-    font-size: 1rem;
-    text-transform: capitalize;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    padding: 0 2rem;
   }
 
-  .links:hover {
-    color: #ff5722;
+  .nav-links .links {
+    color: #929393;
+    text-decoration: none;
+  }
+
+  .nav-links .links:visited {
+    color: #929393;
+  }
+
+  .links.active {
+    color: #ffffff;
+    background-color: #0c0f10;
+    height: 85%;
+    border-radius: 30px;
+  }
+
+  .nav-links .links.active {
+    display: flex;
+    color: #ffffff;
+    align-items: center;
   }
 
   .login-btn {
     background-color: #ff5722;
-    color: #ffffff;
-    font-weight: 600;
-    border-radius: 4px;
-    padding: 0.5rem 1rem;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
-  }
-
-  .login-btn:hover {
-    background-color: #e64a19;
-  }
-
-  .links {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-
-  .links.active {
-    color: #ff5722;
+    font-weight: bold;
   }
 
   @media (max-width: 1060px) {
